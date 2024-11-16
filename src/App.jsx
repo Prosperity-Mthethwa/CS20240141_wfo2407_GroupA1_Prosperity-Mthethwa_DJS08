@@ -13,11 +13,30 @@
  * Review challenge: do all the CSS yourself based on the design
  * linked in the slides.
  */
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom"
+import Home from "./pages/Home.jsx"
+import About from "./pages/About.jsx"
+import Vans from "./pages/Vans.jsx"
+import VanDetails from "./pages/VanDetails.jsx"
 
 function App() {
 
   return (
-    <h1>Start here</h1>
+    <BrowserRouter>
+      <header>
+        <Link to="/home">#VANLIFE</Link>
+        <nav>
+          <NavLink to="/about" className={({ isActive }) => isActive ? "active-link" : null}> About </NavLink>
+          <NavLink to="/vans" className={({ isActive }) => isActive ? "active-link" : null}> Vans </NavLink>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetails />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
