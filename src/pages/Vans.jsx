@@ -54,7 +54,7 @@ const van = [
     }
 ]
 
-function Vans() {
+export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams()
 
     const typeFilter = searchParams.get("type")
@@ -89,5 +89,3 @@ function Vans() {
         </div>
     )
 }
-
-export default Vans
