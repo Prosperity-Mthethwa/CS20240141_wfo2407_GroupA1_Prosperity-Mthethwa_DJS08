@@ -55,7 +55,7 @@ const van = [
 ]
 
 export default function Vans() {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams,] = useSearchParams() //useSearchParams() helps the user interact with the query string in the URL. 
 
     const typeFilter = searchParams.get("type")
 

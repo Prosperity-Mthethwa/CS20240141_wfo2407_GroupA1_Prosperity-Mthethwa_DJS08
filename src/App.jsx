@@ -1,25 +1,10 @@
-/**
- * Challenge:
- * Bootstrap the VanLife project by creating the first 2 routes:
- * Home and About.
- * 
- * Also include the navbar that can link between the two routes.
- * For now, you'll either need to copy/paste the navbar code
- * to both Home and About pages, or you'll need to find a place
- * to put it where it can be shared between the two pages.
- * (Don't overthink this part - just do whatever is easiest for
- * you because we'll learn a better approach very soon)
- * 
- * Review challenge: do all the CSS yourself based on the design
- * linked in the slides.
- */
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom"
 import Home from "./pages/Home.jsx"
 import About from "./pages/About.jsx"
 import Vans from "./pages/Vans.jsx"
 import VanDetails from "./pages/VanDetails.jsx"
 
-function App() {
+export default function App() {
 
   return (
     <BrowserRouter>
@@ -27,11 +12,11 @@ function App() {
         <Link to="/home">#VANLIFE</Link>
         <nav>
           <NavLink to="/about" className={({ isActive }) => isActive ? "active-link" : null}> About </NavLink>
-          <NavLink to="/vans" className={({ isActive }) => isActive ? "active-link" : null}> Vans </NavLink>
+          <NavLink to="/vans" className={({ isActive }) => isActive ? "active-link" : null}> Vans For Hire </NavLink>
         </nav>
       </header>
-      <Routes>
-        <Route path="/home" element={<Home />} />
+      <Routes> //container for a nested tree of route elements that renders the branch that best matshes the current location
+        <Route path="/home" element={<Home />} /> //declares an element that should be rendered at a certain RL path
         <Route path="/about" element={<About />} />
         <Route path="/vans" element={<Vans />} />
         <Route path="/vans/:id" element={<VanDetails />} />
@@ -39,5 +24,4 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App
+//BrowserRouter provides us with clean URLS, for use in search browsers
